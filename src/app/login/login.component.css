@@ -1,0 +1,38 @@
+.login-box {
+    display: flex; 
+    justify-content: center; 
+    padding: 7% 37%;
+    flex-direction: column;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  .mat-card{
+      margin-bottom: 10px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .linkClass{
+    display: flex;
+    justify-content: space-between;
+  }
+  .loginLink{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  
+
+ 

@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.heading {
+  margin-bottom: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.toolbar{
+  position: fixed;
+  z-index: 2;
+}
