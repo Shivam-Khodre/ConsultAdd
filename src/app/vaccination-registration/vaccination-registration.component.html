@@ -1,0 +1,130 @@
+<div class="login-box">
+  <mat-card>
+    <form  #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+      <mat-card-header>
+        <mat-card-title>Vaccine Registration</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-label>Name: {{ name}}</mat-label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field appearance="standard">
+                <mat-label>Select Vaccine</mat-label>
+                <mat-select [(ngModel)]="vaccine" name="vaccine" required>
+                  <mat-option
+                    *ngFor="let item of vaccineList"
+                    [value]="item.value"
+                  >
+                    {{ item.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="alignDose">
+                <mat-label>is First Dose taken:</mat-label>
+                <mat-radio-group
+                  aria-label="Select an option"
+                  [(ngModel)]="firstDose"
+                  name="firstDose"
+                  labelPosition="before"
+                  class="vaccineDose"
+                  (ngModelChange)="onRadioChange(firstDose)"
+                  required
+                >
+                  <mat-radio-button value="yes" class="alignRadioButtons"
+                    >Y</mat-radio-button
+                  >
+                  <mat-radio-button value="no" class="alignRadioButtons"
+                    >N</mat-radio-button
+                  >
+                </mat-radio-group>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field appearance="standard">
+                <mat-label>FirstDoseDate</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="firstDoseDate"
+                  name="firstDoseDate"
+                  [matDatepicker]="picker"
+                  [disabled]="!isFirstDose"
+                  [required]="isFirstDose"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="alignDose">
+                <mat-label>is Second Dose taken:</mat-label>
+                <mat-radio-group
+                  aria-label="Select an option"
+                  [(ngModel)]="secondDose"
+                  name="secondDose"
+                  labelPosition="before"
+                  (ngModelChange)="onChange(secondDose)"
+                  [disabled]="!isFirstDose"
+                >
+                  <mat-radio-button value="yes" class="alignRadioButtons"
+                    >Y</mat-radio-button
+                  >
+                  <mat-radio-button value="no" class="alignRadioButtons"
+                    >N</mat-radio-button
+                  >
+                </mat-radio-group>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field appearance="standard">
+                <mat-label>SecondDoseDate</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="secondDoseDate"
+                  name="secondDoseDate"
+                  [matDatepicker]="secondPicker"
+                  [disabled]="!isSecondDose"
+                  [required]="isSecondDose"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="secondPicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #secondPicker></mat-datepicker>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!myform.valid">Submit</button>
+        <button
+          *ngIf="isAdmin"
+          mat-raised-button
+          type="button"
+          color="accent"
+          (click)="onBackClick()"
+        >
+          Back
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

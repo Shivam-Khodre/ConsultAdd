@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="toolbar">
+  <h3 class="heading">{{title}}</h3>
+  <span class="example-spacer"></span>
+  <a *ngIf="isLoggedIn | async" class="heading" [style.color]="'red'" href="javascript:void(0)" (click)="onLogout()">
+    Logout</a
+  >
+</mat-toolbar>
+<div class="content" role="main">
+
+  <router-outlet></router-outlet>
+
+</div>
+

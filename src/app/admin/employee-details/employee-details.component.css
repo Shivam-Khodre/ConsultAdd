@@ -1,0 +1,13 @@
+.login-box {
+    display: flex; 
+    justify-content: center; 
+    padding: 7% 3%;
+    flex-direction: column;
+  }
+  table {
+    width: 100%;
+  }
+.linkClass{
+  justify-content: flex-end;
+    display: flex;
+}
